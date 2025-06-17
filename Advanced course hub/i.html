@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Course Hub</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <div class="signin-container" id="signinPage">
+    <div class="signin-box">
+      <h2>Student Sign In</h2>
+      <input type="text" id="username" placeholder="Enter your name" required />
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button class="sign-btn" onclick="signIn()">Sign In</button>
+    </div>
+  </div>
+
+  <div class="container" id="mainApp" style="display: none;">
+    <header>
+      <h1>Student Course Hub</h1>
+      <nav>
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#profile">Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <p><strong>Current Exam Points: </strong><span id="currentExamPoints">0</span> / 1000</p>
+      <p><strong>Courses Unlocked:</strong> <span id="unlockedCount">0</span> / 3</p>
+    </section>
+
+    <section id="courses">
+      <h2>Courses</h2>
+
+      <div class="course-card" id="jsCourse">
+        <h3>Advanced JavaScript</h3>
+        <p>Status: <span id="jsStatus">🔒 Locked</span></p>
+        <button class="unlock-btn" id="jsUnlockBtn" onclick="unlockCourse('js')" disabled>Unlock Course</button>
+        <button class="exam-btn" onclick="startExam('js')">Attend JS Exam (Earn 1000 Points)</button>
+      </div>
+
+      <div class="course-card" id="cssCourse">
+        <h3>CSS Mastery</h3>
+        <p>Status: <span id="cssStatus">🔒 Locked</span></p>
+        <button class="unlock-btn" id="cssUnlockBtn" onclick="unlockCourse('css')" disabled>Unlock Course</button>
+        <button class="exam-btn" onclick="startExam('css')">Attend CSS Exam (Earn 1000 Points)</button>
+      </div>
+
+      <div class="course-card" id="reactCourse">
+        <h3>React Essentials</h3>
+        <p>Status: <span id="reactStatus">&#x1F512; Locked</span></p>
+        <button class="unlock-btn" id="reactUnlockBtn" onclick="unlockCourse('react')" disabled>Unlock Course</button>
+        <button class="exam-btn" onclick="startExam('react')">Attend React Exam (Earn 1000 Points)</button>
+      </div>
+    </section>
+
+    <section id="profile">
+      <h2>Your Profile</h2>
+      <p>Name: <span id="studentName">Student Name</span></p>
+      <p>Email: <span id="studentEmail">student@example.com</span></p>
+    </section>
+  </div>
+
+  <div id="examModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeExamModal()">&times;</span>
+      <h3 id="examTitle">Exam</h3>
+      <form id="examForm"></form>
+      <button onclick="submitExam()">Submit Exam</button>
+    </div>
+  </div>
+  
+
+  <script src="app.js"></script>
+</body>
+</html>
